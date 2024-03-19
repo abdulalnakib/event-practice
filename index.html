@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+
+<body>
+    <div id="comment-container">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, expedita consectetur. Deserunt quas quam,
+            adipisci et perferendis veritatis tenetur temporibus delectus reiciendis impedit expedita voluptatibus odit
+            dicta? Expedita, dolores eum!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, expedita consectetur. Deserunt quas quam,
+            adipisci et perferendis veritatis tenetur temporibus delectus reiciendis impedit expedita voluptatibus odit
+            dicta? Expedita, dolores eum!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet, expedita consectetur. Deserunt quas quam,
+            adipisci et perferendis veritatis tenetur temporibus delectus reiciendis impedit expedita voluptatibus odit
+            dicta? Expedita, dolores eum!</p>
+    </div>
+    <div>
+        <textarea name="" id="new-comment" cols="60" rows="5"></textarea>
+        <br>
+        <button id="btn-post">Post</button>
+        <button id="make-green">Make green</button>
+    </div>
+    <script>
+        // step 1 add eventlistener to the post
+        document.getElementById('btn-post').addEventListener
+            ('click', function () {
+                // step 2 get the comment inside the text area
+                const commentBox = document.getElementById('new-comment')
+                const newComment = commentBox.value;
+                // step 3 set the comment inside the comment container
+                // 1. get the comment container
+                // 2.create a new element (p tag)
+                // 3. set the the text of the comment as the innertext of the p tag
+                // 4. add the p tag using appendchild
+                const commentContainer = document.getElementById('comment-container')
+                const p = document.createElement('p');
+                p.innerText = newComment;
+                commentContainer.appendChild(p);
+                // step 4 clear the text area
+                commentBox.value = '';
+            })
+        document.getElementById('make-green').addEventListener('click', function () {
+            document.body.style.background = 'green';
+        })
+    </script>
+</body>
+
+</html>
